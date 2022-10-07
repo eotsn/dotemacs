@@ -28,12 +28,30 @@
   :config
   (direnv-mode))
 
+(use-package eglot)
+
 (use-package embark
   :bind (("C-." . embark-act)
          ("M-." . embark-dwim)))
 
 (use-package embark-consult
   :after (embark consult))
+
+(use-package go-dlv
+  :after go-mode)
+
+(use-package go-mode
+  :preface
+  (defun project-find-go-module (dir)
+    (when-let ((root (locate-dominating-file dir "go.mod")))
+      (cons 'go-module root)))
+  :init
+  (cl-defmethod project-root ((project (head go-module)))
+    (cdr project))
+  :bind (:map go-mode-map
+              ("C-c C-c C-f" . eglot-format-buffer)
+              ("C-c C-c C-i" . eglot-code-action-organize-imports))
+  :hook (project-find-functions . project-find-go-module))
 
 (use-package helpful
   :bind (("C-h f" . helpful-callable)

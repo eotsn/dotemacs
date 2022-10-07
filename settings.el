@@ -8,6 +8,7 @@
  '(completion-styles '(orderless basic))
  '(custom-file "~/.emacs.d/settings.el")
  '(display-line-numbers t)
+ '(go-mode-hook '(eglot-ensure))
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(initial-buffer-choice t)
