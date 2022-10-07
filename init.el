@@ -24,6 +24,10 @@
   :init
   (global-company-mode 1))
 
+(use-package direnv
+  :config
+  (direnv-mode))
+
 (use-package embark
   :bind (("C-." . embark-act)
          ("M-." . embark-dwim)))
