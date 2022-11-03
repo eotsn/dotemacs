@@ -1,3 +1,5 @@
+;;; init.el -*- lexical-binding: t; -*-
+
 (defun emacs-path (path)
   (expand-file-name path user-emacs-directory))
 
@@ -72,6 +74,13 @@
 (use-package orderless)
 
 (use-package org)
+
+(use-package plantuml-mode
+  :mode ("\\.plantuml\\'" "\\.puml\\'")
+  :config
+  (setq plantuml-indent-level 2
+        plantuml-jar-path (emacs-path "plantuml-1.2022.7.jar")
+        plantuml-default-exec-mode 'jar))
 
 (use-package vertico
   :init
