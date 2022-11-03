@@ -6,6 +6,7 @@
  '(column-number-mode t)
  '(completion-category-overrides '((file (styles basic partial-completion))))
  '(completion-styles '(orderless basic))
+ '(custom-enabled-themes '(modus-vivendi))
  '(custom-file "~/.emacs.d/settings.el")
  '(display-line-numbers t)
  '(go-mode-hook '(eglot-ensure))
